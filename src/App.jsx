@@ -46,6 +46,7 @@ for (const combination of WINNING_COMBINATIONS){
     winner = firstSquareSymbol;
   }
 }
+const hasDraw = gameTurns.length === 9 && !winner;
 
   function handleSelectSquare(rowIndex, colIndex) {
    // setActivePlayer((curActivePlayer) => curActivePlayer === 'X' ? 'O' : 'X');
@@ -66,7 +67,7 @@ const updatedTurns = [
             <Player initialName="Player 1" symbol="X" isActive={activePlayer === 'X'} />
             <Player initialName="Player 2" symbol="O" isActive={activePlayer === 'O'} />
           </ol>
-          {winner && <GameOver winner={winner} />}
+          {(winner || hasDraw) && <GameOver winner={winner} />}
           <GameBoard onSelectSquare={handleSelectSquare} board={gameBoard} />
         </div>
         <Log turns={gameTurns}/>
