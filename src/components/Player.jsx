@@ -1,9 +1,7 @@
 import {useState} from 'react';
 
-export default function Player({initialName='Player', symbol='X : O', isActive='false'}){
-    console.log(initialName, symbol, isActive);
-
-
+export default function Player({initialName='Player', symbol='X : O', isActive='false'})
+{
     const [playerName, setPlayerName] = useState(initialName);
     const [isEditing, setIsEditing] = useState(false);
     function handleEditClick(){
